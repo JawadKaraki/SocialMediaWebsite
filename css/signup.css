@@ -1,0 +1,83 @@
+:root {
+    --dark: #2E4C6D;
+    --white: #DADDFC;
+    --red: #FC997C;
+    --light:#396EB0;
+  }
+  *{
+      margin: 0;
+      padding: 0;
+  }
+body{
+  background-color: var(--dark);
+  font-family: DIN pro;
+  color: var(--white);
+  text-align: center;
+}
+.error{
+    width: 50%;
+    height: 100px;
+    position: fixed;
+    top: 200px;
+    background-color: var(--red);
+    color: var(--dark);
+    text-align: center;
+    left: 25%;
+    border-radius: 100px;
+    line-height: 100px;
+    box-shadow:0px 0px 100px 50px var(--dark);
+    transition: 0.5s;
+}
+.link{
+    width: 100vw;
+    margin-top: 100px;
+}
+a{
+    font-size: 30px;
+    color: var(--red);
+    text-decoration: none;
+}
+.form{
+    margin-top: -100px;
+    width: 100vw;
+    height: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+form{
+    width: 30%;
+    text-align: center;
+    font-size: 30px;
+}
+form input{
+    width: 100%;
+    background-color: var(--light);
+    box-shadow: 0px 0px 30px 5px var(--dark);
+    border-radius: 40px;
+    height: 50px;
+    margin-top:30px;
+    text-align: center;
+    border: 0px;
+}
+#submit{
+    margin: auto;
+    margin-top: 100px;
+    width: 40%;
+    background-color: #FC997C;
+}
+@media only screen and (max-width: 1200px) {
+    form{
+        width: 70%;
+    } 
+    .error{
+        height: 50px;
+    }
+    
+}
+@media only screen and (max-width: 900px) {
+    form{
+        width: 90%;
+    } 
+    
+}

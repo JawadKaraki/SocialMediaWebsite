@@ -7,6 +7,8 @@
   *{
       margin: 0;
       padding: 0;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
 body{
   background-color: var(--dark);
@@ -72,6 +74,8 @@ form input{
     } 
     .error{
         height: 50px;
+        line-height: 50px;
+        font-size: 10px;
     }
     
 }

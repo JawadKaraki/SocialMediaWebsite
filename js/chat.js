@@ -28,7 +28,7 @@ function printData(r){
             }
             onStr = '<div class="friend" onClick="sendData('+ o.id +');">';
             onStr+='<a href="profile.php?who='+ o.id +'" class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></a>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></a>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='<div class="online" style="background-color:var(--green)"></div></div>';
             $('.right-cont').append(onStr);
@@ -54,7 +54,7 @@ function printData(r){
             }
             onStr = '<div class="friend" onClick="sendData('+ o.id +');">';
             onStr+='<a href="profile.php?who='+ o.id +'" class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></a>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></a>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='<div class="online" style="background-color:var(--red)"></div></div>';
             $('.right-cont').append(onStr);
@@ -80,7 +80,7 @@ function printData(r){
             }
             onStr = '<div class="friend" onClick="sendData('+ o.id +');">';
             onStr+='<a href="profile.php?who='+ o.id +'" class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></a>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></a>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='</div><div style="height:100px"></div>';
             $('.right-cont').append(onStr);
@@ -223,4 +223,4 @@ function showChats(){
 //run showChats when friends icon is clicked
 $('.show-chats').click(()=>{
     showChats(); 
-})
+});

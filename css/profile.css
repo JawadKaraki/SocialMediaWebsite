@@ -7,6 +7,8 @@
   *{
       margin: 0;
       padding: 0;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
 a{
     text-decoration: none;
@@ -124,7 +126,6 @@ body{
 }
 .result-name{
     width: 50%;
-    letter-spacing: 10px;
     text-transform: uppercase;
 }
 .result img{
@@ -244,24 +245,32 @@ body{
     margin-top: 100px;
     line-height: 300%;
     text-align: center;
-    overflow: scroll;
 }
 .profile-main .name{
+    padding: 5px;
+    height: 150px;
     font-size: 15px;
-    width: 200px;
-    word-break:break-all;
+    width: 220px;
+    overflow-y: scroll;
     
 }
 .profile-main .work{
+    padding: 5px;
+    height: 150px;
     font-size: 15px;
-    width: 200px;
-    word-break:break-all;
+    overflow-y: scroll;
+    border-right: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    width: 220px;
    
 }
 .profile-main .about{
+    padding: 5px;
+    height: 150px;
     font-size: 15px;
-    width: 200px;
-    word-break:break-all;
+    margin-bottom: 100px;
+    overflow-y: scroll;
+    width: 220px;
     
 }
 .edit-button{
@@ -332,7 +341,7 @@ body{
 @media only screen and (max-width: 1200px) {
     .profile-main{
         margin-left: 5vw;
-        height: 800px;
+        height: 750px;
         position: absolute;
         width: 90vw;
         margin-top: 90px;
@@ -361,32 +370,33 @@ body{
         height: 50%;
     
     }
-    .name{
+    .profile-data .name{
         margin: auto;
         margin-top: 10px;
         margin-bottom: 70px;
         width: 100%;
         text-align: center;
     }
-    .about{
+    .profile-data .about{
         margin: auto;
         margin-top: 70px;
         width: 100%;
         text-align: center;
     }
-    .work{
+    .profile-data .work{
+        border: 0px;
         margin: auto;
         width: 100%;
         text-align: center;
     }
     .posts{
         margin:auto;
-        margin-top: 900px;
+        margin-top: 850px;
         width: 100%;
     }
     .posts .info{
         width: 80%;
-        height: 150px;
+        height: 100px;
     }
     .posts .info .photo{
         height: 60%;
@@ -397,7 +407,6 @@ body{
     }
     .posts .info .time{
         position: relative;
-        top: -55px;
     }
     .last-post{
         padding: 0px;
@@ -439,6 +448,9 @@ body{
         width: 80vw;
         left: 10vw;
     
+    }
+    .result{
+        padding: 5px;
     }
 }
 @media only screen and (max-width: 700px) {

@@ -20,6 +20,7 @@ include("php/addpost.php");
     <title>HOME</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/replaceImage.js"></script>
 </head>
 <body>
     <div class="blur"></div>
@@ -43,7 +44,7 @@ include("php/addpost.php");
     </div>
     <div class="navbar">
         <div class="logo">
-            LOGO
+            SOCIAL
         </div>
         <div class="logo-place">
         </div>

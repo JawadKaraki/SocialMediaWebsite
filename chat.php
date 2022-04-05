@@ -24,6 +24,7 @@ if($result){
     <title>HOME</title>
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/replaceImage.js"></script>
 </head>
 <body>
     <div class="show-chats">
@@ -35,7 +36,7 @@ if($result){
                 <?php echo $userinfo['name']; ?>
             </div>
             <div class="my-prof">
-                <img src="<?php echo $userinfo['img']; ?>" alt="">
+                <img src="<?php echo $userinfo['img'];?>" onerror="ImageReplace(this);"/>
             </div>
         </div>
         <a class="icons" href="index.php">
@@ -47,7 +48,7 @@ if($result){
     <div class="chat-place">
         <div class="header">
             <div class="his-prof">
-                <img src="ANY" alt="">
+                <img src="ANY" alt="" onerror="ImageReplace(this);">
             </div>
             <div class="his-name">
                 SELECT SOMEONE

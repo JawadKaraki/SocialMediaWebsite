@@ -8,6 +8,8 @@
   *{
       margin: 0;
       padding: 0;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
 a{
       text-decoration: none;
@@ -531,9 +533,8 @@ option{
     .right-cont i{
         display: block;
     }
-    .posts-cont{
-        width: 75vw;
-        margin-top: 100px;
+    .left-cont{
+        width: 25vw;
     }
     .logo{
         position: absolute;
@@ -542,7 +543,6 @@ option{
     .icon-box{
         width: 50vw;
         right: 10vw;
-    
     }
     .add-post{
         width: 90%;
@@ -565,7 +565,7 @@ option{
         margin: auto;
     }
     .posts-cont{
-        width: 100vw;
+        width: 75vw;
     }
     .mobile-sections{
         display: flex;
@@ -616,6 +616,10 @@ option{
         top: 0;
         width: 100vw;
         left: -100vw;
+    }
+    .posts-cont{
+        margin-top: 100px;
+        width: 100vw;
     }
 }
 @media only screen and (max-width: 500px) {

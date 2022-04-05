@@ -204,7 +204,7 @@ function printData(r){
             }
             onStr = '<a href="chat.php?who='+ o.id +'" class="friend">';
             onStr+='<div class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></div>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></div>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='<div class="online" style="background-color:var(--green)"></div></a>';
             $('.right-cont').append(onStr);
@@ -233,7 +233,7 @@ function printData(r){
             }
             onStr = '<a href="chat.php?who='+ o.id +'" class="friend">';
             onStr+='<div class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></div>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></div>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='<div class="online" style="background-color:var(--red)"></div></a>';
             $('.right-cont').append(onStr);
@@ -262,7 +262,7 @@ function printData(r){
             }
             onStr = '<a href="chat.php?who='+ o.id +'" class="friend">';
             onStr+='<div class="friend-photo">';
-            onStr+='<img src="'+ o.prof +'"></div>';
+            onStr+='<img src="'+ o.prof +'" onerror="ImageReplace(this);"></div>';
             onStr+='<div class="friend-name"><p>'+ o.name +'</p></div><p class="num-new-mass">' + n + '</p>';
             onStr+='</a><div style="height:100px"></div>';
             $('.right-cont').append(onStr);

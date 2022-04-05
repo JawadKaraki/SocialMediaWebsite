@@ -22,6 +22,13 @@ include("php/editProfile.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+<script>
+        //get php variables for javascript
+        var me = <?php echo $_SESSION['id']; ?>;//get my id
+        var who = <?php echo $who; ?>;//get visited profile's id
+        var addButton = <?php echo $areFriends; ?>;//get if user is friends with visited profile
+</script>
+<script src="js/replaceImage.js"></script>
 <body>
     <form class="edit" method="post">
         <i class="fa fa-times" style="margin-right:-80%;"></i>
@@ -35,7 +42,7 @@ include("php/editProfile.php");
     </form>
     <div class="navbar">
         <div class="logo">
-            LOGO
+            SOCIAL
         </div>
         <div class="logo-place">
         </div>
@@ -68,7 +75,7 @@ include("php/editProfile.php");
                         <?php echo $userinfo['name']; ?>
                 </div>
                 <div class="profile-photo">
-                    <img class="proImg" src="<?php if($userinfo){echo $userinfo['img'];}?>" onerror="this.src='https://cdn.dribbble.com/users/112330/screenshots/15505990/media/a40608176e1c04daeeb247d61f7c4d5f.png?compress=1&resize=400x300'" />
+                    <img class="proImg" src="<?php if($userinfo){echo $userinfo['img'];}?>" onerror="ImageReplace(this);" />
                 </div>
                 <div class="profile-data">
                     <div class="name">
@@ -94,7 +101,7 @@ include("php/editProfile.php");
                                 <div class='info'>
 
                                     <div class='photo'>
-                                        <img src='".$userinfo['img']."'>
+                                        <img src='".$userinfo['img']."' onerror='ImageReplace(this);'>
                                     </div>
                 
                                     <div class='cont'>
@@ -123,102 +130,7 @@ include("php/editProfile.php");
                 ?>
             </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        //variables
-        var me = <?php echo $_SESSION['id']; ?>;//get my id
-        var who = <?php echo $who; ?>;//get visited profile's id
-        var addButton = <?php echo $areFriends; ?>;//get if user is friends with visited profile
-        var not = document.getElementById('not');
-        var notIcon = document.getElementById('notIcon');
-        var notclicked = false;
-
-        //search users ajax call
-        function search(){
-        var val = $('#search').val();
-            $.ajax({
-                url: 'php/searchUsers.php',
-                type: 'POST',
-                data: {search : val },
-                success: function(result){
-                    $('.results').html(result);
-                }
-            }); 
-        }
-
-        //show notifications when notification icon is clicked
-        notIcon.addEventListener('click',()=>{
-            if(!notclicked){
-                not.style.height = "400px";
-                not.style.paddingBottom = "100px";
-                notclicked = true;
-                //call ajax to get latest notifications
-                $.ajax({
-                    url: 'php/getnotifications.php',
-                    type: 'POST',
-                    success: function(result){
-                        $('#not').html(result);
-                    }
-                });
-            }else{
-                not.style.height = "0px";
-                not.style.paddingBottom = "0px";
-                notclicked = false;
-            }
-        });
-        //check if visited profile is my profile or other user
-        if(me == who){
-            $('.edit-button').click(()=>{
-                $('.edit').css({'display' : 'flex'});
-            });
-            $('.edit i').click(()=>{
-                $('.edit').css({'display' : 'none'});
-            });
-        }else{
-            //change edit button to add friend button(not my profile)
-            if(addButton){
-                    //edit button becomes (we are friends) button
-                    $('.edit-button').html("<i class='fa fa-user-friends'></i>");
-                    $('.edit-button').css({'transform' : 'rotate(360deg)'});
-                    $('.edit-button').css({'background-color' : 'var(--red)'});
-            }else{
-                    //edit button becomes add friend button
-                    $('.edit-button').html("<i class='fa fa-user-plus'></i>");
-                    $('.edit-button').css({'transform' : 'rotate(0deg)'});
-                    $('.edit-button').css({'background-color' : 'var(--white)'});
-
-            }
-            //toggle between add friend or unfriend
-            $('.edit-button').click(()=>{
-                //if not friends(addbutton = 0 or false) -> add friend button with animations
-                if(!addButton){
-                    $('.edit-button').html("<i class='fa fa-user-friends'></i>");
-                    $('.edit-button').css({'transform' : 'rotate(360deg)'});
-                    $('.edit-button').css({'background-color' : 'var(--red)'});
-                    $.ajax({
-                        url: 'php/addFriend.php',
-                        type: 'POST',
-                        data: {friendid : <?php echo $who; ?> },
-                        success: function(result){
-                        }
-                    }); 
-                    addButton = true;
-                }else{//if friends (addbutton = 1 or true) -> unfriend button with animations
-                    $('.edit-button').html("<i class='fa fa-user-plus'></i>");
-                    $('.edit-button').css({'transform' : 'rotate(0deg)'});
-                    $('.edit-button').css({'background-color' : 'var(--white)'});
-                    $.ajax({
-                        url: 'php/unFriend.php',
-                        type: 'POST',
-                        data: {friendid : <?php echo $who; ?> },
-                        success: function(result){
-                        }
-                    });
-                    addButton = false; 
-                }
-            });
-        }
-
-   </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/profile.js"></script>
 </body>
 </html>
